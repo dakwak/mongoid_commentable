@@ -2,7 +2,7 @@ module Mongoid::Commentable
   extend ActiveSupport::Concern
   included do |base|
     base.embeds_many :comments, :as => :commentable
-    base.index [['comments', Mongo::ASCENDING]]
+    base.index({'comments' => 1})
   end
     
   module ClassMethods
